@@ -6,8 +6,7 @@
       "framework": "vite"
     },
     "server": {
-      "root": "server",
-      "framework": "express"
+      "root": "server"
     }
   },
   "rewrites": [
