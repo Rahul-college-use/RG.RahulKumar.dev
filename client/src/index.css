@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --glow: 0 0 24px rgba(74, 222, 154, 0.25); }
+html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
+body {
+  @apply bg-bg font-sans text-body antialiased;
+  overscroll-behavior-y: none;
+  padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+  background-image: radial-gradient(900px 500px at 85% -10%, rgba(74,222,154,.10), transparent 60%),
+                    radial-gradient(700px 400px at -10% 30%, rgba(35,83,71,.35), transparent 60%);
+  background-attachment: fixed;
+}
+h1, h2, h3 { @apply font-display text-ink; letter-spacing: -0.02em; }
+:focus-visible { outline: 2px solid #4ADE9A; outline-offset: 2px; }
+
+@layer components {
+  .glass { @apply border border-line bg-card2/55 backdrop-blur-xl rounded-2xl; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 font-medium transition active:scale-95 min-h-[44px]; }
+  .btn-gold { @apply btn bg-gold text-bg hover:brightness-110; }
+  .btn-ghost { @apply btn border border-line text-ink hover:bg-card2; }
+  .input { @apply w-full rounded-xl border border-line bg-card px-4 py-3 text-ink placeholder:text-muted/60 focus:border-accent focus:outline-none; }
+  .badge { @apply rounded-md border border-line bg-card px-2 py-1 font-mono text-xs text-accent; }
+  .section { @apply mx-auto max-w-6xl px-4 py-16 sm:px-6; }
+}
+
+/* Cursor Tour: spotlight that follows the pointer over bento cards */
+.spot { position: relative; overflow: hidden; }
+.spot::before {
+  content: ''; position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity .3s;
+  background: radial-gradient(260px circle at var(--x, 50%) var(--y, 50%), rgba(74,222,154,.18), transparent 70%);
+}
+.spot:hover::before { opacity: 1; }
+.spot:hover { border-color: rgba(74,222,154,.55); box-shadow: var(--glow); }
+
+@keyframes ping-ring { 0% { transform: scale(1); opacity: .7 } 100% { transform: scale(3); opacity: 0 } }
+.ping-ring { animation: ping-ring 1.8s cubic-bezier(0,0,.2,1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}
