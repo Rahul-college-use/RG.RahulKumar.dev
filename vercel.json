@@ -8,7 +8,7 @@
     "server": {
       "root": "server",
       "entrypoint": "src/index.js",
-      "buildCommand": ""
+      "buildCommand": "echo 'Skipping build'"
     }
   },
   "rewrites": [
