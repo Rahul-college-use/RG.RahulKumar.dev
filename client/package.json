@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "echo 'No build required for client' && vite build",
+    "build": "echo 'No build required for client'",
     "preview": "vite preview"
   },
   "dependencies": {
