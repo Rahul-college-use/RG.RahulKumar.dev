@@ -1,7 +1,7 @@
 // Single source of API configuration — every request in the app goes through this file.
 import axios from 'axios';
 
-const http = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api', timeout: 10000 });
+const http = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'https://rgrahulkumardev-one.vercel.app/api', timeout: 10000 });
 
 http.interceptors.request.use((cfg) => {
   const token = localStorage.getItem('admin_token');
