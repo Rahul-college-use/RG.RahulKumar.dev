@@ -23,7 +23,7 @@ export default function Home() {
     <>
       <Hero home={home} />
       <Stats items={stats} />
-      <Bento skills={about.skills || []} focus={home.focus || 'Full-stack projects, DSA practice and open-source contributions.'} />
+      <Bento skills={about.skills || []} focus={home.focus || 'Full-stack projects, DSA practice , open-source contributions, and AI integration '} />
       <ReviewShuffle reviews={reviews} />
       <ProcessDraw />
       <BeforeAfter />
